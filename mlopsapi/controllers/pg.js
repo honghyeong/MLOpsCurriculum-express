@@ -1,4 +1,4 @@
-var express = require("express");
+const express = require("express");
 const { Client } = require("pg");
 const Query = require("pg").Query;
 
