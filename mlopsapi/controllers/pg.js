@@ -16,28 +16,30 @@ const client = new Client({
   port: DB_PORT,
 });
 
-const initQuery = `CREATE TABLE IF NOT EXISTS users(
-      id SERIAL PRIMARY KEY,  
-      name varchar UNIQUE NOT NULL,
-      age int NOT NULL
-  );`;
+client.connect();
 
-const init = async (query) => {
-  try {
-    await client.connect();
-    await client.query(query);
-    return true;
-  } catch (error) {
-    console.log(error.stack);
-    return false;
-  }
-};
+// const initQuery = `CREATE TABLE IF NOT EXISTS users(
+//       id SERIAL PRIMARY KEY,
+//       name varchar UNIQUE NOT NULL,
+//       age int NOT NULL
+//   );`;
 
-init(initQuery).then((result) => {
-  if (result) {
-    console.log("Table created");
-  }
-});
+// const init = async (query) => {
+//   try {
+//     await client.connect();
+//     await client.query(query);
+//     return true;
+//   } catch (error) {
+//     console.log(error.stack);
+//     return false;
+//   }
+// };
+
+// init(initQuery).then((result) => {
+//   if (result) {
+//     console.log("Table created");
+//   }
+// });
 /*
  * 1. GET all users
  */
